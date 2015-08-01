@@ -1,8 +1,9 @@
 module.exports = function(router) {
     router.get('/', function (req, res) {
-        res.render('index');
+        console.log('Here');
+        return res.render('index');
     });
     router.get('/students', function (req, res) {
-        res.render('students');
+        return res.render('students');
     });
 }
