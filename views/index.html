@@ -13,6 +13,16 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/index.css">
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <script>
+  $(function(){
+    $('#students').click(function(){
+        window.location.href = "/students";
+    });
+});
+
+  </script>
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -52,7 +62,7 @@
         <h2>Current Students</h2>
         <p>Get to meet us! Peruse our profiles and latest updates!</p>
         <div class="centered">
-            <button type="button" class="btn btn-default" aria-label="Left Align">Check us out</button>
+            <button id="students" type="button" class="btn btn-default" aria-label="Left Align">Check us out</button>
         </div>
      </div>
       <div class="col-md-4">
