@@ -8,7 +8,8 @@ var studentsSchema = new Schema({
     website: String,
     linkedin: String,
     github: String,
-    summary: String
+    summary: String,
+    isAlumni: Boolean
 });
 
 studentsSchema.plugin(autoIncrement.plugin, { model: 'Students', startAt: 1 });

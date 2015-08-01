@@ -28,16 +28,15 @@ module.exports = function(router) {
         });
     });
 
-    ////get last product created
-    //router.get('/students/:id', function (req, res){
-    //    var StudentsSchema = require('../models/Students');
-    //    return StudentsSchema.findById(req.params.id, function (err, students) {
-    //        if (!err) {
-    //            return res.send(students);
-    //        } else {
-    //            return console.log(err);
-    //        }
-    //    });
-    //});
+    router.get('/students/currentStudents', function (req, res){
+        var StudentsSchema = require('../models/Students');
+        return StudentsSchema.findAll({'isAlumni': false}, function (err, students) {
+            if (!err) {
+                return res.send(students);
+            } else {
+                return console.log(err);
+            }
+        });
+    });
 
 }
