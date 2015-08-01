@@ -5,4 +5,7 @@ module.exports = function(router) {
     router.get('/activeStudents', function (req, res) {
         return res.render('activeStudents');
     });
+    router.get('/map', function(req, res) {
+        return res.render('map');
+    })
 }
