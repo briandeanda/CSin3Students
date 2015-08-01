@@ -2,10 +2,11 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var autoIncrement = require('mongoose-auto-increment');
+var hogan = require('hogan-express');
 var username = process.env.USER;
 var password = process.env.PASSWORD;
 var mongoURL = "mongodb://" + username + ":" + password + "@ds047632.mongolab.com:47632/csin3students";
-console.log(mongoURL);
+var path = require('path');
 var connection = mongoose.connect(mongoURL);
 autoIncrement.initialize(connection);
 var router = express.Router();
@@ -15,6 +16,7 @@ require('./models/Products');
 var port = process.env.PORT || 8080;
 
 app.set('port', port);
+app.engine('html', hogan);
 app.set('view engine', 'html');
 
 // Routing
