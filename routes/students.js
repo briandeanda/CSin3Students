@@ -30,8 +30,10 @@ module.exports = function(router) {
 
     router.get('/students/currentStudents', function (req, res){
         var StudentsSchema = require('../models/Students');
-        return StudentsSchema.findAll({'isAlumni': false}, function (err, students) {
+        console.log(StudentsSchema);
+        return StudentsSchema.find({}, function (err, students) {
             if (!err) {
+                console.log(students);
                 return res.send(students);
             } else {
                 return console.log(err);
