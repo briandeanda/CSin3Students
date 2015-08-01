@@ -1,0 +1,28 @@
+.jumbotron {
+    background-image: url('../images/monterey.jpg');
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.jumbotron {
+    min-height: 400px;
+}
+
+.jumbotron h1 {
+    color: white;
+    text-align: center;
+    padding-top: 75px;
+}
+
+.jumbotron p {
+    color: white;
+    text-align: center;
+}
+
+.col-md-4 p, h2{
+    text-align: center;
+}

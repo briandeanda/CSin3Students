@@ -18,6 +18,7 @@ var port = process.env.PORT || 8080;
 app.set('port', port);
 app.engine('html', hogan);
 app.set('view engine', 'html');
+app.use(express.static(path.join(__dirname, 'public'))); // .public
 
 // Routing
 app.use('/', router);
