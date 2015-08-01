@@ -1,0 +1,19 @@
+{
+  "name": "CSin3Students",
+  "version": "1.0.0",
+  "description": "A site of CSin3 students",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/briandeanda/CSin3Students.git"
+  },
+  "author": "Brian DeAnda, Daniel Diaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/briandeanda/CSin3Students/issues"
+  },
+  "homepage": "https://github.com/briandeanda/CSin3Students"
+}
