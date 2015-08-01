@@ -2,6 +2,8 @@
 
 #####=== Node ===#####
 
+.DS_Store
+
 # Logs
 logs
 *.log
@@ -33,3 +35,5 @@ node_modules
 # Debug log from npm
 npm-debug.log
 
+# Secret sauce
+user.sh
