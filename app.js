@@ -11,7 +11,7 @@ var connection = mongoose.connect(mongoURL);
 autoIncrement.initialize(connection);
 var router = express.Router();
 require('./routes/index')(router);
-require('./models/Products');
+require('./models/Students');
 
 var port = process.env.PORT || 8080;
 
