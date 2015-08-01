@@ -13,13 +13,13 @@
 }
 
 .jumbotron h1 {
-    color: white;
+    color: black;
     text-align: center;
-    padding-top: 75px;
+    padding-top: 15px;
 }
 
 .jumbotron p {
-    color: white;
+    color: black;
     text-align: center;
 }
 
