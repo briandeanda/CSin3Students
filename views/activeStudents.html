@@ -24,6 +24,13 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+        #imageSize{
+            width: 250px;
+            height: 250px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -138,7 +145,7 @@
                         $("#profiles").append('<div class="row" id="'+increment+'sec">'+
                                 '<div class="col-md-4 portfolio-item">' +
                                 '<a href="#">' +
-                                '<img class="img-responsive" src="http://placehold.it/700x400" alt="">' +
+                                '<img class="img-rounded" id="imageSize" src="'+res[profile].imageUrl+'" alt="">' +
                                 '</a>' +
                                 '<h3>' +
                                 '<a href="#">' + res[profile].name + '</a>' +
@@ -151,7 +158,7 @@
                         $("#"+increment+"sec").append(
                                 '<div class="col-md-4 portfolio-item">' +
                                 '<a href="#">' +
-                                '<img class="img-responsive" src="http://placehold.it/700x400" alt="">' +
+                                '<img class="img-rounded" id="imageSize" src="'+res[profile].imageUrl+'" alt="">' +
                                 '</a>' +
                                 '<h3>' +
                                 '<a href="#">' + res[profile].name + '</a>' +
