@@ -40,8 +40,6 @@ module.exports = function(router) {
                 ob.currentStudents.map(function(obj) {
                     if(obj.isAlumni === false)
                         list.push(obj);
-
-                    console.log(obj.isAlumni);
                 });
 
                 return res.send(list);
