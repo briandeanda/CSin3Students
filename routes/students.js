@@ -30,11 +30,21 @@ module.exports = function(router) {
 
     router.get('/students/currentStudents', function (req, res){
         var StudentsSchema = require('../models/Students');
-        console.log(StudentsSchema);
-        return StudentsSchema.find({}, function (err, students) {
+
+        return StudentsSchema.find({}).lean().exec(function (err, students) {
             if (!err) {
-                console.log(students);
-                return res.send(students);
+                //console.log(students);
+                var ob = students[0];
+
+                var list = [];
+                ob.currentStudents.map(function(obj) {
+                    if(obj.isAlumni === false)
+                        list.push(obj);
+
+                    console.log(obj.isAlumni);
+                });
+
+                return res.send(list);
             } else {
                 return console.log(err);
             }
