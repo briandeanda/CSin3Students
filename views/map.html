@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>CSITIN3</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <style type="text/css">
+      html, body, #map-canvas { height: 90%; margin: 0; padding: 0;}
+  </style>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/index.css">
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=">
+
+  </script>
+
+  <script type="text/javascript">
+      function initialize() {
+        var myLatLng = new google.maps.LatLng(36.6534, -121.7964);
+        var mapOptions = {
+          center: { lat: 36.6778, lng: -121.6556},
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var contentString = '<div id="content"><h3>Cal State MB</h3></div>';
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'CSUMB'
+        });
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map, marker);
+        })
+       }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <script src="js/scripts.js"></script>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand" href="/students">Current Students</a>
+        <a class="navbar-brand" href="#">Alumni</a>
+        <a class="navbar-brand" href="/map">Map</a>
+      </div>
+
+    </div>
+  </nav>
+  <div id="container">
+      <h2>Places we have been</h2>
+  </div>
+  <div id="map-canvas"></div>
+</body>
+</html>

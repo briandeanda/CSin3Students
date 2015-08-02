@@ -8,8 +8,6 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/index.css">
@@ -18,9 +16,12 @@
   <script>
   $(function(){
     $('#students').click(function(){
-        window.location.href = "/activeStudents";
+        window.location.href = '/activeStudents';
     });
-});
+    $('#map').click(function() {
+        window.location.href = '/map';
+    })
+  });
 
   </script>
 
@@ -30,7 +31,6 @@
 </head>
 
 <body>
-  <script src="js/scripts.js"></script>
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -41,8 +41,9 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">Home</a>
-        <a class="navbar-brand" href="#">Current Students</a>
+        <a class="navbar-brand" href="/students">Current Students</a>
         <a class="navbar-brand" href="#">Alumni</a>
+        <a class="navbar-brand" href="/map">Map</a>
       </div>
 
     </div>
@@ -52,7 +53,7 @@
   <div class="jumbotron">
       <h1>CSIN3</h1>
       <p>Keep up with the cohorts here</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      <p><a class="btn btn-primary btn-lg" href="https://sites.google.com/site/csitin3/" role="button">Learn more about the program</a></p>
   </div>
 
   <div class="container">
@@ -74,9 +75,9 @@
       </div>
       <div class="col-md-4">
         <h2>Journey</h2>
-        <p>Oh, the places we have been to</p>
+        <p>Oh, the places we have been to.</p>
         <div class="centered">
-            <button type="button" class="btn btn-default">Map</button>
+            <button id="map" type="button" class="btn btn-default">Map</button>
         </div>
       </div>
     </div>
