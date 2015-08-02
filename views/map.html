@@ -30,11 +30,18 @@
           zoom: 8
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var contentString = '<div id="content"><h3>Cal State MB</h3></div>';
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
             title: 'CSUMB'
         });
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map, marker);
+        })
        }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
