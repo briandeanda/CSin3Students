@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="stylesheets/3-col-portfolio.css" rel="stylesheet">
+    <link href="stylesheets/images.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,13 +24,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <style>
-        #imageSize{
-            width: 250px;
-            height: 250px;
-        }
-    </style>
 
 </head>
 
@@ -126,54 +120,43 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+        $.get('/students/currentStudents', function (data) {
+            var profile;
+            var count = 0;
+            var increment = 0;
 
-        $.ajax({
-            url: '/students/currentStudents',
-            type: 'GET',
-            async: true,
-            crossDomain: true,
-            dataType: "json",
-            cache: false,
-            success: function(res) {
-                var profile;
-                var count = 0;
-                var increment = 0;
+            for(profile in data){
+                if(count == 0) {
 
-                for(profile in res){
-                    if(count == 0) {
-
-                        $("#profiles").append('<div class="row" id="'+increment+'sec">'+
-                                '<div class="col-md-4 portfolio-item">' +
-                                '<a href="#">' +
-                                '<img class="img-rounded" id="imageSize" src="'+res[profile].imageUrl+'" alt="">' +
-                                '</a>' +
-                                '<h3>' +
-                                '<a href="/currentStudents/' + res[profile].id + '">' + res[profile].name + '</a>' +
-                                '</h3>' +
-                                '<p>' + res[profile].summary + '</p>' +
-                                '</div>'+
-                                '</div>');
-                    }
-                    else{
-                        $("#"+increment+"sec").append(
-                                '<div class="col-md-4 portfolio-item">' +
-                                '<a href="#">' +
-                                '<img class="img-rounded" id="imageSize" src="'+res[profile].imageUrl+'" alt="">' +
-                                '</a>' +
-                                '<h3>' +
-                                '<a href="/currentStudents/' + res[profile].id + '">' + res[profile].name + '</a>' +
-                                '</h3>' +
-                                '<p>' + res[profile].summary + '</p>' +
-                                '</div>');
-                    }
-                    count++;
-                    if(count == 3){
-                        increment++;
-                        count = 0;
-                    }
+                    $("#profiles").append('<div class="row" id="'+increment+'sec">'+
+                            '<div class="col-md-4 portfolio-item" style="text-align: center;">' +
+                            '<h3>' +
+                            '<a href="#">' + data[profile].name + '</a>' +
+                            '</h3>' +
+                            '<a href="#">' +
+                            '<img class="img-circle" id="imageSize" src="'+data[profile].imageUrl+'" alt="">' +
+                            '</a>' +
+                            '<p>' + data[profile].summary + '</p>' +
+                            '</div>'+
+                            '</div>');
                 }
-
-
+                else{
+                    $("#"+increment+"sec").append(
+                            '<div class="col-md-4 portfolio-item" style="text-align: center;">' +
+                            '<h3>' +
+                            '<a href="#">' + data[profile].name + '</a>' +
+                            '</h3>'+
+                            '<a href="#">' +
+                            '<img class="img-circle" id="imageSize" src="'+data[profile].imageUrl+'" alt="">' +
+                            '</a>' +
+                            '<p>' + data[profile].summary + '</p>' +
+                            '</div>');
+                }
+                count++;
+                if(count == 3){
+                    increment++;
+                    count = 0;
+                }
             }
         });
     });
