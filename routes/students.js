@@ -49,4 +49,18 @@ module.exports = function(router) {
         });
     });
 
+    router.get('/students/:id', function(req, res) {
+        var StudentSchema = require('../models/Students');
+
+        return StudentsSchema.find({}).lean().exec(function(err, students) {
+            if (!err) {
+                var ob = students[0];
+                var student = ob.currentStudents.filter(function(obj) {
+                    return obj.id == req.params.id;
+                });
+                return res.send(student);
+            }
+        })
+    })
+
 }

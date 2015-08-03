@@ -8,5 +8,9 @@ module.exports = function(router) {
     });
     router.get('/map', function(req, res) {
         return res.render('map', {key: googleApiKey});
+    });
+
+    router.get('/currentStudents/:id', function (req, res) {
+        return res.render('student');
     })
 }

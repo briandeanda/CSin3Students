@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // .public
 app.use('/', router);
 app.use('/students', router);
 app.use('/alumni', router);
-app.use('/student/:id', router);
+app.use('/students/:id', router);
 app.use('/students/currentStudents', router);
 
 

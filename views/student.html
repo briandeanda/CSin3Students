@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>CSITIN3</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <style type="text/css">
+      html, body, #map-canvas { height: 90%; margin: 0; padding: 0;}
+  </style>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/student.css">
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        var id = window.location.href.split('/')[4];
+        console.log(id);
+        $.get('/students/' + id, function(data) {
+            if(data) {
+                var students = data[0];
+                console.log(students);
+                $("#name").html('<h1 class="nameHeader">' + students.name + '</h1>');
+                $("#picture").html('<img id = "imageSize" class="img-rounded" src="' + students.imageUrl + '"</img>');
+                $("#information").html('<li class="list-group-item">Email: '
+                 + students.email + '</li>' +
+                '<li class="list-group-item">Github: ' + students.github + '</li>' +
+                '<li class="list-group-item">LinkedIn: ' + students.linkedin + '</li>');
+            }
+        });
+    });
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <script src="js/scripts.js"></script>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand" href="/currentStudents">Current Students</a>
+        <a class="navbar-brand" href="#">Alumni</a>
+        <a class="navbar-brand" href="/map">Map</a>
+      </div>
+
+    </div>
+  </nav>
+  <div id="container">
+      <div class="row">
+          <div id="name" class="col-md-4 col-md-offset-2">
+          </div>
+      </div>
+      <div class="row">
+        <div id="picture" class="col-md-4 col-md-offset-2">
+        </div>
+        <div class="col-md-4">
+            <ul id="information" class="list-group"></ul>
+        </div>
+      </div>
+  </div>
+</body>
+</html>
