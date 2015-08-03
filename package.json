@@ -24,5 +24,6 @@
     "hogan-express": "^0.5.2",
     "mongoose": "^4.0.0",
     "mongoose-auto-increment": "^4.0.0"
-  }
+  },
+  "engine": "node 0.10.32"
 }
