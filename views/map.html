@@ -33,14 +33,12 @@
                 var info = data["events"];
 
                 $.each(info, function(){
-                    console.log(this.name);
                     var contentString = '<h4>' + this.name + '</h4><hr>' +
                             '<p>' + this.summary + '</p>';
                     var pos;
                     pos = new google.maps.LatLng(this.lat,
                             this.long);
 
-                    console.log(pos);
                     var marker = new google.maps.Marker({
                         map: map,
                         position: pos
