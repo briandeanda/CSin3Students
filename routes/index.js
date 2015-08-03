@@ -12,5 +12,9 @@ module.exports = function(router) {
 
     router.get('/currentStudents/:id', function (req, res) {
         return res.render('student');
-    })
+    });
+
+    router.get('/alumni', function (req, res) {
+        return res.render('alumni');
+    });
 }
