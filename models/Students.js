@@ -3,7 +3,7 @@ var Schema=mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
 
 var studentsSchema = new Schema({
-    id: Integer,
+    id: Double,
     name: String,
     email: String,
     website: String,
