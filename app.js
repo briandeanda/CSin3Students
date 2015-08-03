@@ -1,14 +1,12 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
-var autoIncrement = require('mongoose-auto-increment');
 var hogan = require('hogan-express');
 var username = process.env.USER;
 var password = process.env.PASSWORD;
 var mongoURL = "mongodb://" + username + ":" + password + "@ds047632.mongolab.com:47632/csin3students";
 var path = require('path');
 var connection = mongoose.connect(mongoURL);
-autoIncrement.initialize(connection);
 var router = express.Router();
 require('./models/Students');
 require('./models/Event');
