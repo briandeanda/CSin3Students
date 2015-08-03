@@ -3,7 +3,7 @@ var Schema=mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
 
 var eventsSchema = new Schema({
-    id: Double,
+    id: Number,
     name: String,
     date: Date,
     lat: Double,
