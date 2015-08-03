@@ -131,9 +131,9 @@
                     $("#profiles").append('<div class="row" id="'+increment+'sec">'+
                             '<div class="col-md-4 portfolio-item" style="text-align: center;">' +
                             '<h3>' +
-                            '<a href="#">' + data[profile].name + '</a>' +
+                            '<a href="/currentStudents/' + data[profile].id + '">' + data[profile].name + '</a>' +
                             '</h3>' +
-                            '<a href="#">' +
+                            '<a href="/currentStudents/' + data[profile].id + '">' +
                             '<img class="img-circle" id="imageSize" src="'+data[profile].imageUrl+'" alt="">' +
                             '</a>' +
                             '<p>' + data[profile].summary + '</p>' +
@@ -144,9 +144,9 @@
                     $("#"+increment+"sec").append(
                             '<div class="col-md-4 portfolio-item" style="text-align: center;">' +
                             '<h3>' +
-                            '<a href="#">' + data[profile].name + '</a>' +
+                            '<a href="/currentStudents/' + data[profile].id + '">' + data[profile].name + '</a>' +
                             '</h3>'+
-                            '<a href="#">' +
+                            '<a href="/currentStudents/' + data[profile].id + '">' +
                             '<img class="img-circle" id="imageSize" src="'+data[profile].imageUrl+'" alt="">' +
                             '</a>' +
                             '<p>' + data[profile].summary + '</p>' +
