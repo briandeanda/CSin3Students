@@ -42,6 +42,10 @@ module.exports = function(router) {
                         list.push(obj);
                 });
 
+                list.sort(function() {
+                    return .5 - Math.random();
+                });
+
                 return res.send(list);
             } else {
                 return console.log(err);
