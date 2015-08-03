@@ -23,13 +23,65 @@
   </script>
 
   <script type="text/javascript">
+      var map;
       function initialize() {
+
+
+        $.get('/events', function(data) {
+            $.each(data, function() {
+
+              console.log(data);
+//              var geocoder = new google.maps.Geocoder();
+//
+//              var loc = String(this.address + ", "+this.city+", "+this.state+", "+this.zipcode);
+//
+//              var contentString = '<h4>Location info</h4><hr>'+
+//                      '<table>'+
+//                      '<tr><td style="font-size:13px; font-weight: bold">' + data+'</h5></td></tr>'+
+//                      '<tr><td>Price:</td><td>&nbsp&nbsp' + String(this.price) + '</td></tr>'+
+//                      '<tr><td>Check In:</td><td>&nbsp&nbsp' + String(this.dateIn) + '</td></tr>'+
+//                      '<tr><td>Check Out:</td><td>&nbsp&nbsp' + String(this.dateOut) + '</td></tr>'+
+//                      '</table>'+
+//                      '<form method="post" action="reservation.php"><br/>'+
+//                      '<input type="hidden" name="name" value="' + String(this.fname+" "+this.lname)+'">'+
+//                      '<input type="hidden" name="ownerId" value="'+ String(this.ownerId) +'">'+
+//                      '<input type="hidden" name="price" value="'+ String(this.price) +'">'+
+//                      '<input type="hidden" name="dateIn" value="'+ String(this.dateIn) +'">'+
+//                      '<input type="hidden" name="dateOut" value="'+ String(this.dateOut) +'">'+
+//                      '<input class="btn btn-lg btn-primary btn-block" type="submit" name="info" value="More info!">'+
+//                      '</form>';
+//              var pos;
+//              geocoder.geocode( { 'address': loc}, function(results, status) {
+//                if (status == google.maps.GeocoderStatus.OK) {
+//                  var latitude = results[0].geometry.location.lat();
+//                  var longitude = results[0].geometry.location.lng();
+//                  pos = new google.maps.LatLng(latitude,
+//                          longitude);
+//
+//                  var infowindow = new google.maps.InfoWindow({
+//                    content: contentString
+//                  });
+//
+//                  var marker = new google.maps.Marker({
+//                    map: map,
+//                    position: pos
+//                  });
+//                  google.maps.event.addListener(marker, 'click', function() {
+//                    infowindow.open(map,marker);
+//                  });
+//                }
+
+            });
+        });
+
+
+
         var myLatLng = new google.maps.LatLng(36.6534, -121.7964);
         var mapOptions = {
           center: { lat: 36.6778, lng: -121.6556},
           zoom: 8
         };
-        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
         var contentString = '<div id="content"><h3>Cal State MB</h3></div>';
         var marker = new google.maps.Marker({
             position: myLatLng,
@@ -41,10 +93,11 @@
         });
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map, marker);
-        })
+        });
        }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
