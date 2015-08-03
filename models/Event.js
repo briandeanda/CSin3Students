@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var Schema=mongoose.Schema;
-var autoIncrement = require('mongoose-auto-increment');
 
 var eventsSchema = new Schema({
     id: Number,
@@ -17,6 +16,5 @@ var eventsSchema = new Schema({
     isFulltime: Boolean
 });
 
-eventsSchema.plugin(autoIncrement.plugin, { model: 'Events', startAt: 1 });
 var Events = mongoose.model('Events', eventsSchema);
 module.exports = Events;
