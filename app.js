@@ -11,9 +11,10 @@ var connection = mongoose.connect(mongoURL);
 autoIncrement.initialize(connection);
 var router = express.Router();
 require('./models/Students');
+require('./models/Event');
 require('./routes/index')(router);
 require('./routes/students')(router);
-
+require('./routes/events')(router);
 
 var port = process.env.PORT || 8080;
 
@@ -28,6 +29,7 @@ app.use('/students', router);
 app.use('/alumni', router);
 app.use('/students/:id', router);
 app.use('/students/currentStudents', router);
+app.use('/events', router);
 
 
 app.listen(app.get('port'), function() {
