@@ -2,15 +2,15 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>CSIN3</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+    <title>CSIN3</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
 
-  <!-- Bootstrap Core CSS -->
-  <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="stylesheets/index.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/index.css">
 
     <!-- jQuery -->
     <script src="javascripts/jquery.js"></script>
@@ -18,82 +18,97 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="javascripts/bootstrap.min.js"></script>
 
-  <script>
-  $(function(){
-    $('#students').click(function(){
-        window.location.href = '/currentStudents';
-    });
-    $('#map').click(function() {
-        window.location.href = '/map';
-    })
-  });
+    <script>
+        $(function () {
+            $('#students').click(function () {
+                window.location.href = '/currentStudents';
+            });
+            $('#map').click(function () {
+                window.location.href = '/map';
+            });
+            $('#alumni').click(function () {
+                window.location.href = '/alumni';
+            })
+        });
 
-  </script>
+    </script>
 
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-  <script src="js/scripts.js"></script>
-  <nav class="navbar navbar-default navbar-fixed-top">
+<script src="js/scripts.js"></script>
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Home</a>
-        <a class="navbar-brand" href="/currentStudents">Current Students</a>
-        <a class="navbar-brand" href="/alumni">Alumni</a>
-        <a class="navbar-brand" href="/map">Map</a>
-      </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="/currentStudents">Current Students</a>
+            <a class="navbar-brand" href="/alumni">Alumni</a>
+            <a class="navbar-brand" href="/map">Map</a>
+        </div>
 
     </div>
-  </nav>
+</nav>
 
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
-      <h1>CSIN3</h1>
-      <p>Keep up with the cohorts here</p>
-      <p><a class="btn btn-primary btn-lg" href="https://sites.google.com/site/csitin3/" role="button">Learn more about the program</a></p>
-  </div>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <h1>CSIN3</h1>
 
-  <div class="container">
+    <p>Keep up with the cohorts here</p>
+
+    <p><a class="btn btn-primary btn-lg" href="https://sites.google.com/site/csitin3/" role="button">Learn more about
+        the program</a></p>
+</div>
+
+<div class="container">
     <!-- Example row of columns -->
     <div class="row">
-      <div class="col-md-4">
-        <h2>Current Students</h2>
-        <p>Get to meet us! Peruse our profiles and latest updates!</p>
-        <div class="centered">
-            <button id="students" type="button" class="btn btn-default" aria-label="Left Align">Check us out</button>
+        <div class="col-md-4">
+            <h2>Current Students</h2>
+
+            <p>Get to meet us! Peruse our profiles and latest updates!</p>
+
+            <div class="centered">
+                <button id="students" type="button" class="btn btn-default" aria-label="Left Align">Check us out
+                </button>
+            </div>
         </div>
-     </div>
-      <div class="col-md-4">
-        <h2>Alumni</h2>
-        <p>For those who have already completed this journey.</p>
-        <div class="centered">
-            <button type="button" class="btn btn-default">Where we are now</button>
+        <div class="col-md-4">
+            <h2>Alumni</h2>
+
+            <p>For those who have already completed this journey.</p>
+
+            <div class="centered">
+                <button id="alumni" type="button" class="btn btn-default">Where we are now</button>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <h2>Journey</h2>
-        <p>Oh, the places we have been to.</p>
-        <div class="centered">
-            <button id="map" type="button" class="btn btn-default">Map</button>
+        <div class="col-md-4">
+            <h2>Journey</h2>
+
+            <p>Oh, the places we have been to.</p>
+
+            <div class="centered">
+                <button id="map" type="button" class="btn btn-default">Map</button>
+            </div>
         </div>
-      </div>
     </div>
 
     <hr>
 
     <footer>
-      <p>&copy; Otters 2015</p>
+        <p>&copy; Otters 2015</p>
     </footer>
-  </div> <!-- /container -->
+</div>
+<!-- /container -->
 
 
 </body>
