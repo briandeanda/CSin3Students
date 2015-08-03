@@ -9,13 +9,13 @@
 }
 
 .jumbotron {
-    min-height: 400px;
+    min-height: 500px;
 }
 
 .jumbotron h1 {
     color: black;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 80px;
 }
 
 .jumbotron p {
