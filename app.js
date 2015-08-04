@@ -5,7 +5,7 @@ var autoIncrement = require('mongoose-auto-increment');
 var hogan = require('hogan-express');
 var username = process.env.USER;
 var password = process.env.PASSWORD;
-var mongoURL = "mongodb://" + username + ":" + password + "@ds047632.mongolab.com:47632/csin3students";
+var mongoURL = "mongodb://localhost/test";
 var path = require('path');
 var connection = mongoose.connect(mongoURL);
 autoIncrement.initialize(connection);
