@@ -6,13 +6,15 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
-  <style type="text/css">
-      html, body, #map-canvas { height: 90%; margin: 0; padding: 0;}
-  </style>
+  <!--<style type="text/css">-->
+      <!--html, body, #map-canvas { height: 90%; margin: 0; padding: 0;}-->
+  <!--</style>-->
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="../stylesheets/images.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../stylesheets/aroundWeb.css">
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script>
     $(document).ready(function() {
@@ -21,16 +23,21 @@
         $.get('/students/' + id, function(data) {
             if(data) {
                 var students = data[0];
-                console.log(students);
+                //console.log(students);
+                $("#summary").html(students.detailSummary);
+
+                $("#information").append('<li>'+
+                             '<a href="' + students.linkedin + '" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>'+
+                             '</li>'+
+                             '<li>'+
+                             '<a href="' + students.github + '" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>'+
+                             '</li>'+
+                             '<li>'+
+                             '<a href="' + students.email + '" class="btn-social btn-outline"><i class="fa fa-fw fa-envelope"></i></a>'+
+                             '</li>');
+
                 $("#name").html('<h1 class="nameHeader">' + students.name + '</h1>');
                 $("#picture").html('<img id = "imageSize" class="img-rounded" src="' + students.imageUrl + '"</img>');
-                $("#information").html('<li class="list-group-item">'
-                 + '<a href="mailto:' + students.email
-                 + '">Email</a></li>'
-                 + '<li class="list-group-item"><a href="' + students.github
-                 + '">Github</a>'
-                 + '</li>' + '<li class="list-group-item"><a href="'
-                 + students.linkedin + '">LinkedIn</a></li>');
             }
         });
     });
@@ -42,7 +49,6 @@
 </head>
 
 <body>
-  <script src="js/scripts.js"></script>
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -69,8 +75,9 @@
         <div id="picture" class="col-md-4 col-md-offset-2">
         </div>
         <div class="col-md-4">
-            <h2>Around the web</h2>
-            <ul id="information" class="list-group"></ul>
+            <span id="summary"></span>
+            <!--<h2>Around the web</h2>-->
+            <div style="text-align: center;"><ul id="information" class="list-inline"></ul></div>
         </div>
       </div>
   </div>
