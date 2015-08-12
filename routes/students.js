@@ -3,7 +3,6 @@ var mongoose = require("mongoose");
 var StudentsSchema = mongoose.model('Students');
 module.exports = function(router) {
 
-    //push product details into the database
     router.post('/students/create', function(req, res, next) {
         var studentsModel = new StudentsSchema();
 
@@ -33,20 +32,17 @@ module.exports = function(router) {
 
         return StudentsSchema.find({}).lean().exec(function (err, students) {
             if (!err) {
-                //console.log(students);
                 var ob = students[0];
 
-                var list = [];
-                ob.currentStudents.map(function(obj) {
-                    if(obj.isAlumni === false)
-                        list.push(obj);
+                var studentList = ob.currentStudents.filter(function(student) {
+                    return student.isAlumni === false;
                 });
 
-                list.sort(function() {
+                studentList.sort(function() {
                     return .5 - Math.random();
                 });
 
-                return res.send(list);
+                return res.send(studentList);
             } else {
                 return console.log(err);
             }
