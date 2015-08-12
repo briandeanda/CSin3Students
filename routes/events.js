@@ -1,10 +1,7 @@
 var mongoose = require("mongoose");
-
 var EventsSchema = mongoose.model('Events');
+
 module.exports = function(router) {
-
-    //push product details into the database
-
     router.get('/events', function (req, res){
         var EventsSchema = require('../models/Event');
 
@@ -19,3 +16,4 @@ module.exports = function(router) {
         });
     });
 }
+

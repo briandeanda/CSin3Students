@@ -8,6 +8,7 @@ var mongoURL = "mongodb://" + username + ":" + password + "@ds047632.mongolab.co
 var path = require('path');
 var connection = mongoose.connect(mongoURL);
 var router = express.Router();
+
 require('./models/Students');
 require('./models/Event');
 require('./routes/index')(router);
@@ -29,7 +30,7 @@ app.use('/students/:id', router);
 app.use('/students/currentStudents', router);
 app.use('/events', router);
 
-
 app.listen(app.get('port'), function() {
     console.log('Server started on localhost: ' + app.get('port'));
 });
+
