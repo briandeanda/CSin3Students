@@ -1,7 +1,19 @@
 #!/bin/bash
 
+setupMac() {
+  which -s brew;
+  if [[ $? != 0]]  then
+    echo "Nooo"
+  else
+    brew update
+  fi
+}
+        
+
 if [ "$(uname)" == "Darwin" ]; then
     echo 'Hello Mac User ;)';
+    setupMac();
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo 'Hello Linux user :)';
 fi
+
