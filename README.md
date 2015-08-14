@@ -2,10 +2,18 @@
 ## Powered by NodeJS, ExpressJS, MongoDB, and Bootstrap.
 
 ## Setup
-Install Node and npm
-> npm install
+Install Node and npm. Then run
+```
+$ npm install
+```
+If you're running OSX, install brew.
+
+
 If you don't have mongo
-> brew install mongo
+```
+$ brew install mongo
+```
+
 Run mongod to make sure everything is good
 
 ### Contributing
