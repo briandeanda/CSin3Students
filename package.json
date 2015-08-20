@@ -4,6 +4,8 @@
   "description": "A site of CSin3 students",
   "main": "app.js",
   "scripts": {
+    "setup": "./scripts/setup.sh",
+    "bootstrap": "node scripts/bootstrap-database.js",
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
