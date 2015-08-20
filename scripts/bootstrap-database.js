@@ -4,12 +4,12 @@ var Student = require('./../models/Students');
 var Event = require('./../models/Event');
 var mongourl = require('./../config/environment/development');
 var log = require('./../util/logger');
-log(mongourl.mongodb.uri);
 var connection = mongoose.connect(mongourl.mongodb.uri);
 
 var daniel = new Student({id: 1,name: 'Daniel'})
 var csumb = new Event({id: 1, name: 'csumb'});
 
+log(mongourl.mongodb.uri);
 log('Inserting student- ' + daniel.name);
 log('Inserting event- ' + csumb.name);
 

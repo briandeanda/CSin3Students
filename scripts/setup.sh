@@ -1,10 +1,13 @@
 #!/bin/bash
 
 setupMac() {
-  which -s brew;
-  if [[ $? != 0 ]] ; then
-    echo "Install brew"
-  else
+	which -s brew;
+
+	if [[ $? != 0 ]] ; then
+		echo "Install brew"
+		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	fi
+
 	echo "Updating brew...";
 	brew update -v
 	echo "Running brew doctor";
@@ -13,7 +16,7 @@ setupMac() {
 	brew install node
 	echo "Installing mongodb...";
 	brew install mongodb
-  fi
+	echo "You're all done! Run npm run bootstrap to setup your mongo";
 }
         
 
