@@ -7,7 +7,8 @@
     "setup": "./scripts/setup.sh",
     "bootstrap": "node scripts/bootstrap-database.js",
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jshint": "jshint routes/*.js config/*/*.js models/*.js scripts/*.js *.js util/*.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "debug": "^2.2.0",
     "express": "^4.13.2",
     "hogan-express": "^0.5.2",
+    "jshint": "^2.8.0",
     "mongoose": "^4.0.0"
   },
   "engines": {

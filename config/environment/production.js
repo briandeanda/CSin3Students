@@ -7,4 +7,4 @@ module.exports = {
 	mongodb: {
 		uri: "mongodb://" + username + ":" + password + "@" + host + ":47632/csin3students"
 	}
-}
+};

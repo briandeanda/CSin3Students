@@ -4,7 +4,7 @@ var env = process.env.NODE_ENV || 'development';
 
 module.exports = function(router) {
 
-    router.post('/students/create', function(req, res, next) {
+    router.post('/students/create', function(req, res) {
         var studentsModel = new StudentsSchema();
 
         studentsModel.name = req.body.name;
@@ -41,17 +41,17 @@ module.exports = function(router) {
                     });
 
                     studentList.sort(function() {
-                        return .5 - Math.random();
+                        return 0.5 - Math.random();
                     });
 
                     return res.send(studentList);
                 }
 
-                var studentList = students.filter(function(student) {
+                var devStudentList = students.filter(function(student) {
                     return student.isAlumni === false;
                 });
 
-                return res.send(studentList);
+                return res.send(devStudentList);
 
             } else {
                 return console.log(err);
@@ -60,17 +60,14 @@ module.exports = function(router) {
     });
 
     router.get('/students/:id', function(req, res) {
-        var StudentSchema = require('../models/Students');
-
         return StudentsSchema.find({}).lean().exec(function(err, students) {
             if (!err) {
                 var ob = students[0];
                 var student = ob.currentStudents.filter(function(obj) {
-                    return obj.id == req.params.id;
+                    return obj.id === req.params.id;
                 });
                 return res.send(student);
             }
-        })
-    })
-
-}
+        });
+    });
+};
