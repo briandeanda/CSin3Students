@@ -10,9 +10,8 @@ if (env !== "development") {
 	config = require('./config/environment/production');
 }
 var mongoURL = config.mongodb.uri;
-console.log(mongoURL);
-var connection = mongoose.connect(mongoURL);
 var router = express.Router();
+mongoose.connect(mongoURL);
 
 require('./models/Students');
 require('./models/Event');

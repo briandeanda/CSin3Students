@@ -3,12 +3,11 @@ var async = require('async');
 var Student = require('./../models/Students');
 var Event = require('./../models/Event');
 var config = require('./../config/environment/development.json');
-
 var log = require('./../util/logger');
-var connection = mongoose.connect(config.mongodb.uri);
-
 var students = config.currentStudents;
 var events = config.events;
+
+mongoose.connect(config.mongodb.uri);
 
 log(config.mongodb.uri);
 log('Inserting students');
@@ -18,14 +17,14 @@ async.waterfall([
 	removeModels,
 	insertStudents,
 	insertEvents
-	], function onWrite(err, result) {
+	], function onWrite(err) {
 		if (err) {
 			log(err.message);
 			process.exit(1);
 		}
 		log('Succesfully bootstraped!');
 		process.exit(0);
-	})
+	});
 
 function insertStudents (cb) {
 	students.map(function(student) {
@@ -58,6 +57,7 @@ function removeModels(cb) {
 		if (err) {
 			throw err;
 		} else {
+			log('No of docs removed: ' + docs);
 			removeEvents();
 		}
 	});
