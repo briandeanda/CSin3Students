@@ -30,7 +30,9 @@
         var map;
         function initialize() {
             $.get('/events', function (data) {
+                console.log(data);
                 var info = data["events"];
+                console.log(info);
 
                 $.each(info, function(){
                     var contentString = '<h4>' + this.name + '</h4><hr>' +

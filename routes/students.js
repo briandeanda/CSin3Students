@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
-
 var StudentsSchema = mongoose.model('Students');
+var env = process.env.NODE_ENV || 'development';
+
 module.exports = function(router) {
 
     router.post('/students/create', function(req, res, next) {
@@ -32,17 +33,26 @@ module.exports = function(router) {
 
         return StudentsSchema.find({}).lean().exec(function (err, students) {
             if (!err) {
-                var ob = students[0];
+                if (env !== 'development') {
+                    var ob = students[0];
 
-                var studentList = ob.currentStudents.filter(function(student) {
+                    var studentList = ob.currentStudents.filter(function(student) {
+                        return student.isAlumni === false;
+                    });
+
+                    studentList.sort(function() {
+                        return .5 - Math.random();
+                    });
+
+                    return res.send(studentList);
+                }
+
+                var studentList = students.filter(function(student) {
                     return student.isAlumni === false;
                 });
 
-                studentList.sort(function() {
-                    return .5 - Math.random();
-                });
-
                 return res.send(studentList);
+
             } else {
                 return console.log(err);
             }

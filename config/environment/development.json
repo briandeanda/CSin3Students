@@ -1,0 +1,39 @@
+{
+	"mongodb": {
+		"uri": "mongodb://localhost/csin3students"
+	},
+	"currentStudents": [
+		{
+			"id": 1,
+            "name": "Brian De Anda",
+            "email": "briandeanda2@gmail.com",
+            "linkedin": "https://www.linkedin.com/in/bdeanda",
+            "github": "https://github.com/briandeanda",
+            "summary": "Front-end Dev, Cars and IoT",
+            "detailSummary": "I am a Computer Science and Information Technology student with a concentration in Software Engineering and I'm currently attending California State University, Monterey Bay. I am interested in expanding my developing skills towards mobile applications that can have a positive impact in a person's life.",
+            "isAlumni": "false",
+            "imageUrl": "http://i.imgur.com/lilOlmG.jpg"
+		}
+	],
+	"events": [
+		{
+            "id": 1,
+            "name": "Kick It With CODE2040",
+            "date": "1438393194",
+            "lat": "37.7822671",
+            "long": "-122.3912479",
+            "location": "Github Office",
+            "summary": "A fundraiser and hangout with Code2040!",
+            "members": [
+                "Elias Ramirez",
+                "Arturo Lopez",
+                "Daniel Diaz",
+                "Brian DeAnda"
+            ],
+            "isHackathon": "false",
+            "isInternship": "false",
+            "isConference": "true",
+            "isFulltime": "false"
+        }
+	]
+}

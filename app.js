@@ -2,10 +2,15 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var hogan = require('hogan-express');
-var username = process.env.USER;
-var password = process.env.PASSWORD;
-var mongoURL = "mongodb://" + username + ":" + password + "@ds047632.mongolab.com:47632/csin3students";
+var config = require('./config/environment/development');
 var path = require('path');
+var env = process.env.NODE_ENV || 'development';
+
+if (env !== "development") {
+	config = require('./config/environment/production');
+}
+var mongoURL = config.mongodb.uri;
+console.log(mongoURL);
 var connection = mongoose.connect(mongoURL);
 var router = express.Router();
 
