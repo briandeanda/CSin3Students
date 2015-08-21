@@ -9,7 +9,9 @@ var studentsSchema = new Schema({
     linkedin: String,
     github: String,
     summary: String,
-    isAlumni: Boolean
+    detailSummary: String,
+    isAlumni: Boolean,
+    imageUrl: String
 });
 
 var Students = mongoose.model('Students', studentsSchema);

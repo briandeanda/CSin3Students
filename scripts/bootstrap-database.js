@@ -2,20 +2,22 @@ var mongoose = require('mongoose');
 var async = require('async');
 var Student = require('./../models/Students');
 var Event = require('./../models/Event');
-var mongourl = require('./../config/environment/development');
+var config = require('./../config/environment/development.json');
+
 var log = require('./../util/logger');
-var connection = mongoose.connect(mongourl.mongodb.uri);
+var connection = mongoose.connect(config.mongodb.uri);
 
-var daniel = new Student({id: 1,name: 'Daniel'})
-var csumb = new Event({id: 1, name: 'csumb'});
+var students = config.currentStudents;
+var events = config.events;
 
-log(mongourl.mongodb.uri);
-log('Inserting student- ' + daniel.name);
-log('Inserting event- ' + csumb.name);
+log(config.mongodb.uri);
+log('Inserting students');
+log('Inserting events');
 
 async.waterfall([
-	insertStudent.bind(null, daniel),
-	insertEvent.bind(null, csumb)
+	removeModels,
+	insertStudents,
+	insertEvents
 	], function onWrite(err, result) {
 		if (err) {
 			log(err.message);
@@ -25,20 +27,49 @@ async.waterfall([
 		process.exit(0);
 	})
 
-function insertStudent (student, cb) {
-	student.save(function(err) {
-		if (err) {
-			return cb(new Error('Failed to insert student'));
-		}
-		return cb(null);
-	})
+function insertStudents (cb) {
+	students.map(function(student) {
+		var newStudent = new Student(student);
+		newStudent.save(function(err) {
+			if (err) {
+				log(err.message);
+				process.exit(1);
+			}
+		});
+	});
+	cb(null);
 }
 
-function insertEvent(event, cb) {
-	event.save(function(err) {
+function insertEvents(cb) {
+	events.map(function(event) {
+		var newEvent = new Event(event);
+		newEvent.save(function(err) {
+			if (err) {
+				log(err.message);
+				process.exit(1);
+			}
+		});
+	});
+	cb(null);
+}
+
+function removeModels(cb) {
+	Student.remove(function(err, docs) {
 		if (err) {
-			return cb(new Error('Failed to insert event'));
+			throw err;
+		} else {
+			removeEvents();
 		}
-		return cb(null);
-	})
+	});
+
+	function removeEvents() {
+		Event.remove(function(err, docs) {
+			if (err) {
+				throw err;
+			} else {
+				log('No of docs removed: ' + docs);
+			}
+			cb(null);
+		});
+	}
 }
