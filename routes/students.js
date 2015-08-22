@@ -62,12 +62,20 @@ module.exports = function(router) {
     router.get('/students/:id', function(req, res) {
         return StudentsSchema.find({}).lean().exec(function(err, students) {
             if (!err) {
-                var ob = students[0];
-                var student = ob.currentStudents.filter(function(obj) {
-                    return obj.id === req.params.id;
+                if (env !== 'development') {
+                    var ob = students[0];
+                    var student = ob.currentStudents.filter(function(obj) {
+                        return obj.id == req.params.id;
+                    });
+                    return res.send(student);
+                }
+                var devStudent = students.filter(function(student) {
+                    return student.id == req.params.id;
                 });
-                return res.send(student);
+                return res.send(devStudent);
             }
+
+
         });
     });
 };
